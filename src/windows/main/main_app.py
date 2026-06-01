@@ -47,7 +47,7 @@ class MainApp(Window):
     """Main windows of the application"""
 
     def __init__(self):
-        super().__init__("PyMacroRecord", 350, 200)
+        super().__init__("PyMacroRecord", 700, 400)
         self.attributes("-topmost", 1)
         if platform == "win32":
             self.iconbitmap(resource_path(path.join("assets", "logo.ico")))
@@ -91,9 +91,11 @@ class MainApp(Window):
             self.playBtn = Button(self.center_frame, image=self.playImg, command=self.macro.start_playback)
             self.macro_recorded = True
             self.macro_saved = True
+            self.current_file = sys.argv[1]
         else:
             self.playBtn = Button(self.center_frame, image=self.playImg, state=DISABLED)
         self.playBtn.pack(side=LEFT, padx=50)
+        self.update_title()
 
         # Record Button
         self.recordImg = PhotoImage(file=resource_path(path.join("assets", "button", "record.png")))
@@ -180,3 +182,13 @@ class MainApp(Window):
                         NewVerAvailable(self, self.version.new_version)
             except Exception:
                 pass
+    
+    def update_title(self, is_saved:bool | None = None):
+        is_saved = self.macro_saved if is_saved == None else is_saved
+        
+        if self.current_file != None:
+            file_name = self.current_file
+        else:
+            file_name = 'untitled.pmr'
+            
+        self.title(f"PyMacroRecord - {file_name}{'*' if not is_saved else ''}")

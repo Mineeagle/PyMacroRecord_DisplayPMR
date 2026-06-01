@@ -48,6 +48,7 @@ class RecordFileManagement:
                 else:
                     json_macroEvents = dumps(macroData, indent=4)
                 current_file.write(json_macroEvents)
+                self.main_app.update_title(is_saved=True)
         else:
             self.save_macro_as()
 
@@ -85,6 +86,7 @@ class RecordFileManagement:
             self.main_app.macro_recorded = True
             self.main_app.macro_saved = True
             self.main_app.current_file = macroFile.name
+            self.main_app.update_title()
             if "settings" in self.main_app.macro.macro_events:
                 if not self.main_app.settings.settings_dict["Loading"]["Always_import_macro_settings"]:
                     if messagebox.askyesno("PyMacroRecord", self.config_text["global"]["load_macro_settings"]):
@@ -112,3 +114,4 @@ class RecordFileManagement:
         self.main_app.current_file = None
         self.main_app.macro_saved = False
         self.main_app.macro_recorded = False
+        self.main_app.update_title()

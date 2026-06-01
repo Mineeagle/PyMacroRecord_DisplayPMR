@@ -125,6 +125,7 @@ class Macro:
 
         self.main_app.macro_recorded = True
         self.main_app.macro_saved = False
+        self.main_app.update_title()
 
         if userSettings["Minimization"]["When_Recording"]:
             self.main_app.deiconify()
