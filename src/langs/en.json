@@ -16,7 +16,8 @@
       "confirm": "Confirm",
       "information": "Information",
       "restart_software_text": "You need to restart the software for it to take effect.",
-      "load_macro_settings": "Import macro settings too?"
+      "load_macro_settings": "Import macro settings too?",
+      "untitled_file_name": "Untitled.pmr"
     },
     "new_version": {
       "title": "Software update",

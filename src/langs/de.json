@@ -16,7 +16,8 @@
       "confirm": "Bestätigen",
       "information": "Informationen",
       "restart_software_text": "Sie müssen das Programm neu starten, damit die Änderung übernommen wird.",
-      "load_macro_settings": "Macro-Einstellungen laden?"
+      "load_macro_settings": "Macro-Einstellungen laden?",
+      "untitled_file_name": "Unbenannt.pmr"
     },
     "new_version": {
       "title": "Software update",
