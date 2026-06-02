@@ -189,6 +189,6 @@ class MainApp(Window):
         if self.current_file != None:
             file_name = self.current_file
         else:
-            file_name = 'untitled.pmr'
+            file_name = self.text_content.get("global",{}).get("untitled_file_name","Untitled.pmr")
             
         self.title(f"PyMacroRecord - {file_name}{'*' if not is_saved else ''}")
