@@ -47,7 +47,7 @@ class MainApp(Window):
     """Main windows of the application"""
 
     def __init__(self):
-        super().__init__("PyMacroRecord", 700, 400)
+        super().__init__("PyMacroRecord", 350, 200)
         self.attributes("-topmost", 1)
         if platform == "win32":
             self.iconbitmap(resource_path(path.join("assets", "logo.ico")))
